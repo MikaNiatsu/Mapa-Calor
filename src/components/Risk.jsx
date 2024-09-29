@@ -93,8 +93,8 @@ const RiskHeatmap = () => {
         
         <text x="500" y="50" fontFamily="Trebuchet MS" fontSize="24" fontWeight="bold" textAnchor="middle" fill="#333">Mapa de Calor de Riesgos</text>
         
-        <text x="550" y="560" fontFamily="Trebuchet MS" fontSize="18" textAnchor="middle" fontWeight="bold" fill="#666">Impacto</text>
-        <text x="50" y="300" fontFamily="Trebuchet MS" fontSize="18" textAnchor="middle" fontWeight="bold" transform="rotate(-90 50 300)" fill="#666">Probabilidad</text>
+        <text x="460" y="560" fontFamily="Trebuchet MS" fontSize="18" textAnchor="middle" fontWeight="bold" fill="#666">Impacto</text>
+        <text x="50" y="280" fontFamily="Trebuchet MS" fontSize="18" textAnchor="middle" fontWeight="bold" transform="rotate(-90 50 300)" fill="#666">Probabilidad</text>
         
         {['Insignificante', 'Menor', 'Crítica', 'Mayor', 'Catastrófico'].map((label, index) => (
           <text key={label} x={220 + index * 120} y="520" fontFamily="Trebuchet MS" fontSize="14" fontStyle="italic" textAnchor="middle" fill="#666">{label}</text>

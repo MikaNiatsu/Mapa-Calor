@@ -1,21 +1,36 @@
 import { useState } from 'react';
 
 const riesgos = [
-  { id: 1, nombre: "Incompatibilidad con el sistema SIIGO", descripcion: "El nuevo software podría tener problemas de integración con el sistema contable SIIGO existente, causando errores en la transferencia de datos financieros y retrasos en la implementación.", impacto: 5, probabilidad: 3 },
+  { id: 1, nombre: "Incompatibilidad con el sistema SIIGO", descripcion: "El nuevo software podría tener problemas de integración con el sistema contable SIIGO existente, causando errores en la transferencia de datos financieros y retrasos en la implementación.", impacto: 5, probabilidad: 4 },
   { id: 2, nombre: "Resistencia al cambio por parte del personal", descripcion: "Los empleados podrían mostrar resistencia a adoptar el nuevo sistema, lo que resultaría en una baja adopción y eficiencia reducida en las operaciones post-implementación.", impacto: 4, probabilidad: 4 },
-  { id: 3, nombre: "Retrasos en el desarrollo de módulos críticos", descripcion: "El desarrollo de módulos clave como el de Planificación y Control de Producción podría retrasarse, impactando el cronograma general y la capacidad de cumplir con el objetivo de aumentar la eficiencia en la planificación de la producción en un 25%.", impacto: 5, probabilidad: 3 },
-  { id: 4, nombre: "Sobrecarga de trabajo en el equipo de desarrollo", descripcion: "La complejidad y el alcance del proyecto podrían sobrecargar al equipo de desarrollo, llevando a una disminución en la calidad del código y posibles burnouts del personal.", impacto: 4, probabilidad: 4 },
+  { id: 3, nombre: "Retrasos en el desarrollo de módulos críticos", descripcion: "El desarrollo de módulos clave como el de Planificación y Control de Producción podría retrasarse, impactando el cronograma general y la capacidad de cumplir con el objetivo de aumentar la eficiencia en la planificación de la producción en un 25%.", impacto: 5, probabilidad: 2 },
+  { id: 4, nombre: "Sobrecarga de trabajo en el equipo de desarrollo", descripcion: "La complejidad y el alcance del proyecto podrían sobrecargar al equipo de desarrollo, llevando a una disminución en la calidad del código y posibles burnouts del personal.", impacto: 5, probabilidad: 4 },
   { id: 5, nombre: "Fallas en la migración de datos", descripcion: "Podrían surgir problemas durante la migración de datos desde los sistemas antiguos, resultando en pérdida de información crítica o corrupción de datos en el nuevo sistema.", impacto: 5, probabilidad: 3 },
   { id: 6, nombre: "Cambios no anticipados en los requerimientos", descripcion: "Provispol S.A. podría solicitar cambios significativos en los requerimientos durante el desarrollo, lo que afectaría el alcance, el cronograma y el presupuesto del proyecto.", impacto: 4, probabilidad: 4 },
   { id: 7, nombre: "Problemas de rendimiento del sistema", descripcion: "El software integrado podría enfrentar problemas de rendimiento al manejar grandes volúmenes de datos, lo que impactaría negativamente la eficiencia operativa y la satisfacción del usuario.", impacto: 4, probabilidad: 3 },
-  { id: 8, nombre: "Brechas de seguridad en el nuevo sistema", descripcion: "Podrían identificarse vulnerabilidades de seguridad en el nuevo software, exponiendo datos sensibles de Provispol S.A. y requiriendo parches de emergencia.", impacto: 5, probabilidad: 2 },
-  { id: 9, nombre: "Subestimación de la complejidad de integración", descripcion: "La integración entre los diferentes módulos podría resultar más compleja de lo previsto, llevando a retrasos y sobrecostos en el desarrollo.", impacto: 4, probabilidad: 4 },
-  { id: 10, nombre: "Falta de disponibilidad de stakeholders clave", descripcion: "Los stakeholders clave de Provispol S.A. podrían no estar disponibles para tomar decisiones críticas o proporcionar feedback oportuno, retrasando el progreso del proyecto.", impacto: 4, probabilidad: 3 },
-  { id: 11, nombre: "Capacitación inadecuada de usuarios finales", descripcion: "Una capacitación insuficiente o inefectiva de los usuarios finales podría resultar en un uso subóptimo del nuevo sistema, impidiendo alcanzar los objetivos de mejora de eficiencia.", impacto: 4, probabilidad: 3 },
-  { id: 12, nombre: "Conflictos entre departamentos sobre prioridades", descripcion: "Podrían surgir desacuerdos entre diferentes departamentos de Provispol S.A. sobre las prioridades de implementación de módulos, causando retrasos y potenciales cambios en el alcance.", impacto: 3, probabilidad: 3 },
-  { id: 13, nombre: "Problemas de compatibilidad con hardware existente", descripcion: "El nuevo software podría no ser totalmente compatible con el hardware existente en Provispol S.A., requiriendo actualizaciones de equipos no previstas y aumentando los costos.", impacto: 4, probabilidad: 2 },
-  { id: 14, nombre: "Cambios regulatorios en la industria del plástico", descripcion: "Nuevas regulaciones en la industria del plástico podrían entrar en vigor durante el desarrollo del proyecto, requiriendo ajustes significativos en los módulos de gestión de calidad y producción.", impacto: 4, probabilidad: 2 },
-  { id: 15, nombre: "Pérdida de personal clave del proyecto", descripcion: "Miembros clave del equipo del proyecto podrían dejar la empresa durante la implementación, llevándose conocimiento crítico y afectando la capacidad de completar el proyecto según lo planeado.", impacto: 5, probabilidad: 2 }
+  { id: 8, nombre: "Brechas de seguridad en el nuevo sistema", descripcion: "Podrían identificarse vulnerabilidades de seguridad en el nuevo software, exponiendo datos sensibles de Provispol S.A. y requiriendo parches de emergencia.", impacto: 5, probabilidad: 3 },
+  { id: 9, nombre: "Subestimación de la complejidad de integración", descripcion: "La integración entre los diferentes módulos podría resultar más compleja de lo previsto, llevando a retrasos y sobrecostos en el desarrollo.", impacto: 4, probabilidad: 3 },
+  { id: 10, nombre: "Falta de disponibilidad de stakeholders clave", descripcion: "Los stakeholders clave de Provispol S.A. podrían no estar disponibles para tomar decisiones críticas o proporcionar feedback oportuno, retrasando el progreso del proyecto.", impacto: 3, probabilidad: 3 },
+  { id: 11, nombre: "Capacitación inadecuada de usuarios finales", descripcion: "Una capacitación insuficiente o inefectiva de los usuarios finales podría resultar en un uso subóptimo del nuevo sistema, impidiendo alcanzar los objetivos de mejora de eficiencia.", impacto: 3, probabilidad: 2 },
+  { id: 12, nombre: "Conflictos entre departamentos sobre prioridades", descripcion: "Podrían surgir desacuerdos entre diferentes departamentos de Provispol S.A. sobre las prioridades de implementación de módulos, causando retrasos y potenciales cambios en el alcance.", impacto: 2, probabilidad: 2 },
+  { id: 13, nombre: "Problemas de compatibilidad con hardware existente", descripcion: "El nuevo software podría no ser totalmente compatible con el hardware existente en Provispol S.A., requiriendo actualizaciones de equipos no previstas y aumentando los costos.", impacto: 3, probabilidad: 2 },
+  { id: 14, nombre: "Cambios regulatorios en la industria del plástico", descripcion: "Nuevas regulaciones en la industria del plástico podrían entrar en vigor durante el desarrollo del proyecto, requiriendo ajustes significativos en los módulos de gestión de calidad y producción.", impacto: 3, probabilidad: 2 },
+  { id: 15, nombre: "Pérdida de personal clave del proyecto", descripcion: "Miembros clave del equipo del proyecto podrían dejar la empresa durante la implementación, llevándose conocimiento crítico y afectando la capacidad de completar el proyecto según lo planeado.", impacto: 4, probabilidad: 3 },
+  { id: 16, nombre: "Incompatibilidad de módulos", descripcion: "Incompatibilidad entre los módulos entregados por los otros grupos.", impacto: 3, probabilidad: 4 },
+  { id: 17, nombre: "Falta de comunicación entre los grupos", descripcion: "Problemas de comunicación entre los grupos de trabajo.", impacto: 3, probabilidad: 2 },
+  { id: 18, nombre: "Falta de claridad en los requerimientos", descripcion: "Claridad en los requerimientos entre los diferentes grupos.", impacto: 4, probabilidad: 2 },
+  { id: 19, nombre: "Limitaciones en la escalabilidad del sistema", descripcion: "El sistema integrado no sea escalable para futuras expansiones.", impacto: 4, probabilidad: 2 },
+  { id: 20, nombre: "Documentación técnica incompleta", descripcion: "La documentación técnica de los módulos no esté completa o clara.", impacto: 3, probabilidad: 1 },
+  { id: 21, nombre: "Entorno de pruebas no representativo del entorno de producción", descripcion: "El entorno de pruebas no sea representativo del entorno de producción.", impacto: 3, probabilidad: 3 },
+  { id: 22, nombre: "Fallos en la gestión de permisos y accesos", descripcion: "No se implementen correctamente los controles de acceso para usuarios y administradores en el software.", impacto: 4, probabilidad: 3 },
+  { id: 23, nombre: "Problemas de actualización en el software", descripcion: "El sistema no se pueda actualizar fácilmente cuando se implementen nuevas versiones.", impacto: 3, probabilidad: 4 },
+  { id: 24, nombre: "Falta de integración con las bases de datos existentes", descripcion: "El sistema no se integre correctamente con las bases de datos ya existentes en la empresa.", impacto: 4, probabilidad: 3 },
+  { id: 25, nombre: "Falta de trazabilidad en las ofertas comerciales", descripcion: "No se cuenta con un historial para seguir las ofertas comerciales rechazadas.", impacto: 2, probabilidad: 2 },
+  { id: 26, nombre: "Desalineación entre fechas de entrega acordadas y capacidad de producción", descripcion: "Las fechas acordadas por el área comercial no siempre coinciden con la capacidad de producción.", impacto: 2, probabilidad: 4 },
+  { id: 27, nombre: "Duplicación de información en el Protocolo de Pedido", descripcion: "El Protocolo de Pedido se elabora manualmente, lo que genera duplicación de información.", impacto: 2, probabilidad: 3 },
+  { id: 28, nombre: "Problemas de control de inventario de fotopolímeros", descripcion: "El listado de fotopolímeros no está actualizado, lo que genera confusión en la producción.", impacto: 2, probabilidad: 3 },
+  { id: 29, nombre: "Inexactitud en la planificación de inventarios", descripcion: "No se tiene control en tiempo real del inventario de materias primas.", impacto: 4, probabilidad: 2 },
+  { id: 30, nombre: "Acumulación de productos no conformes", descripcion: "La respuesta ante productos no conformes es lenta y el inventario no está actualizado.", impacto: 3, probabilidad: 3 }
 ];
 
 const RiskHeatmap = () => {
@@ -139,7 +154,7 @@ const RiskHeatmap = () => {
 
         {selectedRisk && (
           <g>
-            <rect x="250" y="150" width="500" height="300" fill="#fff" rx="20" ry="20" opacity="0.95"/>
+            <rect x="150" y="150" width="700" height="300" fill="#fff" rx="20" ry="20" opacity="0.95"/>
             <text x="500" y="250" fontFamily="Trebuchet MS" fontSize="18" fontWeight="bold" textAnchor="middle" fill="#333">{selectedRisk.nombre}</text>
             <text x="500" y="280" fontFamily="Trebuchet MS" fontSize="16" textAnchor="middle" fill="#666">ID: {selectedRisk.id}</text>
             <foreignObject x="280" y="300" width="440" height="150">
@@ -148,7 +163,7 @@ const RiskHeatmap = () => {
               </p>
             </foreignObject>
             <circle cx="720" cy="170" r="15" fill="#f0f0f0" onClick={closeModal} style={{ cursor: 'pointer' }}/>
-            <text x="720" y="175" fontFamily="Trebuchet MS" fontSize="20" textAnchor="middle" fill="#666" onClick={closeModal} style={{ cursor: 'pointer' }}>×</text>
+            <text x="825" y="185" fontFamily="Trebuchet MS" fontSize="20" textAnchor="middle" fill="#666" onClick={closeModal} style={{ cursor: 'pointer' }}>×</text>
           </g>
         )}
       </svg>

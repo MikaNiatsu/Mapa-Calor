@@ -35,7 +35,7 @@ const RiskHeatmap = () => {
       ['#90EE90', '#ffe65d', '#ffa500', '#ff0000', '#ff0000'],
       ['#90EE90', '#ffe65d', '#ffe65d', '#ffa500', '#ff0000'],
       ['#90EE90', '#90EE90', '#ffe65d', '#ffe65d', '#ffa500'],
-      ['#e5f8e5', '#90EE90', '#90EE90', '#ffe65d', '#ffa500']
+      ['#b3e7ff', '#90EE90', '#90EE90', '#ffe65d', '#ffa500']
     ];
     return colorMatrix[5 - probabilidad][impacto - 1];
   };
@@ -131,7 +131,7 @@ const RiskHeatmap = () => {
         <g transform="translate(800, 250)">
           {['Catastrófico', 'Mayor', 'Crítica', 'Menor', 'Insignificante'].map((label, index) => (
             <g key={label} transform={`translate(0, ${index * 30})`}>
-              <rect width="20" height="20" fill={['#ff0000', '#ffa500', '#ffe65d', '#90EE90', '#e5f8e5'][index]} rx="5" ry="5"/>
+              <rect width="20" height="20" fill={['#ff0000', '#ffa500', '#ffe65d', '#90EE90', '#b3e7ff'][index]} rx="5" ry="5"/>
               <text x="30" y="15" fontFamily="Trebuchet MS" fontSize="14" fill="#666">{label}</text>
             </g>
           ))}
